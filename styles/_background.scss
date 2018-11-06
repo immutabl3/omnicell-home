@@ -1,0 +1,9 @@
+.background {
+	// TODO: px to rem
+	padding: 50px 0 70px 0;
+	background-color: $color-white;
+
+	&--alternative {
+		background-color: $color-off-white;
+	}
+}

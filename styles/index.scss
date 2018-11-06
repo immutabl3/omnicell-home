@@ -1,0 +1,264 @@
+@import "variables";
+@import "reset";
+@import "reboot";
+
+@import "utils";
+@import "type";
+@import "background";
+
+@import "components/icon";
+@import "components/button";
+
+@import "sections/top-nav";
+@import "sections/main-header";
+@import "sections/mega-nav";
+@import "sections/banner";
+@import "sections/message-rail";
+@import "sections/main-footer";
+@import "sections/footer-nav";
+@import "sections/social-nav";
+
+// TODO: move
+// TODO: loading animation
+.scroll-tabs {
+	$height: 400px;
+	
+	position: relative;
+	margin-bottom: 4.375rem;
+	padding-top: $height;
+
+	// this is the rule that breaks
+	// between the tabs and the 
+	// next content area
+	&:after {
+		@extend .container;
+
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		height: 2px;
+		padding: 0;
+		background-color: #f1e8e2;
+		transform: translateX(-50%);
+	}
+
+	&__tabs {
+		@extend .container;
+
+		// setup to scroll on small screens
+		display: flex;
+		flex-wrap: nowrap;
+		position: relative;
+		z-index: 3;
+		top: 100%;
+		left: 50%;
+		padding: 4px 15px 0;
+		transform: translateX(-50%);
+		overflow-x: scroll;
+
+		// setup to fill on large
+		@media ($sm) {
+			position: absolute;
+			top: ($height - 55px);
+			width: 100%;
+			padding: 0;
+			overflow: visible;
+		}
+	}
+		&__tab {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			flex-shrink: 0;
+			position: relative;
+			width: 132px;
+			height: 55px;
+			padding: 0;
+			margin-right: 1px;
+			cursor: pointer;
+			color: $color-secondary;
+			text-align: left;
+			font-size: 13px;
+			background-color: rgba(255, 255, 255, 0.8);
+			transition: 
+				color 250ms ease,
+				background-color 250ms ease;
+
+			&--active {
+				cursor: default;
+				color: $color-primary;
+				background-color: $color-white;
+			}
+
+			&:not(.scroll-tabs__tab--active):hover {
+				color: $color-primary;
+				background-color: $color-white;
+			}
+
+			&__highlight {
+				position: absolute;
+				right: 0;
+				bottom: 100%;
+				left: 0;
+				height: 4px;
+				background-color: $color-primary;
+				transform: scaleX(0);
+				transform-origin: left;
+			}
+
+			@media ($sm) {
+				flex-grow: 1;
+				width: auto;
+				justify-content: center;
+				text-align: center;
+			}
+
+			@media ($md) {
+				justify-content: flex-start;
+				padding: 0 30px;
+				font-size: 1rem;
+			}
+		}
+
+	// this isnt visible
+	// it's here to facilitate dragging
+	// and to track active panels
+	&__frame {
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: $height;
+
+		font-size: 0;
+		line-height: 0;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+		&__slides {
+			display: inline-block;
+		}
+			&__slide {
+				position: relative;
+				display: inline-block;
+				width: 100vw;
+				height: $height;
+
+				// used for debugging
+				// opacity: 0.2;
+				// &:nth-child(1) { background-color: pink; }
+				// &:nth-child(2) { background-color: blue; }
+				// &:nth-child(3) { background-color: green; }
+			}
+
+	&__line {
+		position: absolute;
+		z-index: 1;
+		top: 75px;
+		right: 0;
+		left: 0;
+		height: 250px;
+		overflow-x: hidden;
+		// 3d accelerate
+		transform: translateX(0) translateZ(1px);
+
+		polyline {
+			fill: none;
+			stroke: $color-primary;
+			stroke-width: 2;
+			stroke-miterlimit: 10;
+		}
+	}
+
+	&__carousel {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		right: 0;
+		left: 0;
+		// 3d accelerate
+		transform: translateX(0) translateZ(1px);
+
+		&__image {
+			position: relative;
+			z-index: 1;
+			height: $height;
+			// keep the item from shrinking
+			flex-shrink: 0;
+			width: 100vw;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			&:first-of-type {
+				&:after {
+					content: '';
+					position: absolute;
+					z-index: -1;
+					top: 0;
+					bottom: 0;
+					right: 100%;
+					width: 100%;
+					background-color: $color-cool-gray;
+				}
+			}
+
+			&:last-of-type {
+				&:after {
+					content: '';
+					position: absolute;
+					z-index: -1;
+					top: 0;
+					bottom: 0;
+					left: 100%;
+					width: 100%;
+					background-color: $color-cool-gray;
+				}
+			}
+		}
+	}
+
+	&__panels {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		// 3d accelerate
+		transform: translateX(0) translateZ(1px);
+	}
+		&__panel {
+			// keep the item from shrinking
+			flex-shrink: 0;
+			width: 100vw;
+			padding: 60px 0 45px;
+			
+			.container {
+				@media ($md) {
+					display: grid;
+					grid-template-columns: 35% 65%;
+				}
+			}
+		}
+			&__title { @extend .visuallyhidden; }
+			// &__content {}
+			&__nav {
+				a {
+					display: block;
+					// TODO: px values
+  					line-height: 2.67;
+					font-size: 12px;
+				}
+
+				@media ($md) {
+					display: flex;
+					flex-wrap: wrap;
+					padding-left: 10%;
+
+					a { width: 50%; }
+				}
+			}
+}

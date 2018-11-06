@@ -9,7 +9,7 @@
     "node_modules/**/node_modules"
   ],
   "execMap": {
-    "js": "node --require ./node_modules/esm --require ./node_modules/dotenv/config"
+    "js": "node --require ./node_modules/dotenv/config"
   },
   "env": {
     "NODE_ENV": "development"

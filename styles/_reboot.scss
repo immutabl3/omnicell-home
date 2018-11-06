@@ -1,0 +1,23 @@
+html, body {   
+	// overscrolling in ios and safari
+	// will show the background color
+
+	background-color: $color-cool-gray;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+}
+	.wrapper {
+		// wrapper color for the main page background color
+		background-color: $color-white;
+	}
+		// our flexible container
+		.container {
+			width: 100%;
+			max-width: 1170px;
+			margin: 0 auto;
+			padding: 0 15px;
+		}
