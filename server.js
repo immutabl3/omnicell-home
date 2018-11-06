@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const compression = require('compression');
 const favicon = require('serve-favicon');
 const exphbs = require('express-handlebars');
+const pkg = require('./package.json');
 
 const { PORT } = process.env;
 
@@ -27,10 +28,12 @@ app.use(morgan('tiny'));
 // expose built assets
 app.use('/public', express.static('public'));
 
-// routing
+// the home page
 app.get('/', (req, res) => res.render('home'));
+// the home page with additional scripts/styles from the original home page
 app.get('/integration', (req, res) => res.render('home', { integrate: true }));
-app.get('/download', (req, res) => res.render('home'));
+// redirect to the download link
+app.get('/download', (req, res) => res.redirect(pkg.repository.download));
 
 // start up the server
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
