@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -6,6 +7,39 @@
 		<title>
 			Omnicell | Healthcare Management Solutions
 		</title>
+		<meta name="description" content="Omnicell is a leading provider of medication and supply management solutions dedicated to improving patient care and outcomes. We deliver value to hospitals, health systems, post-acute care settings, and patients in the home with our automated dispensing systems and medical inventory solutions." />
+
+		{{!-- TODO: more favicons --}}
+		<link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+		<link rel="icon" type="image/png" href="/img/favicon.ico">
+
+		{{#if integrate}}
+			{{> integration}}
+		{{/if}}
+
+		{{!--
+			Kick off the font load early to prevent screen flicker
+			and speed up the CSSOM construction
+			https://www.igvita.com/2014/01/31/optimizing-web-font-rendering-performance/
+
+			don't let the fonts slow us down
+			https://developers.google.com/web/updates/2016/02/font-display
+		--}}
+		<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+		<style>
+			@font-face {
+				font-family: 'Open Sans';
+				font-display: auto;
+				font-weight: 400;
+				src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans') format('woff');
+			}
+			@font-face {
+				font-family: 'Open Sans';
+				font-display: auto;
+				font-weight: 700;
+				src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans:700') format('woff');
+			}
+		</style>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 		<link rel="stylesheet" href="/public/site.css">
 	</head>

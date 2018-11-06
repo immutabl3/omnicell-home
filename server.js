@@ -29,6 +29,8 @@ app.use('/public', express.static('public'));
 
 // routing
 app.get('/', (req, res) => res.render('home'));
+app.get('/integration', (req, res) => res.render('home', { integrate: true }));
+app.get('/download', (req, res) => res.render('home'));
 
 // start up the server
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
