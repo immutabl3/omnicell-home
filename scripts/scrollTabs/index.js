@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { lory } from 'lory.js';
 import ScrollTabs from '../views/ScrollTabs';
-import generateMount from './generateMount';
 import createStore from './createStore';
 import parseX from './parseX';
 import lerp from './lerp';
@@ -10,7 +9,7 @@ import { root } from 'baobab-react/higher-order';
 import TWEEN from '@tweenjs/tween.js';
 
 const scrollTab = function(container) {
-	const mount = generateMount();
+	const mount = container.querySelector('[data-mount]');
 	const store = createStore(container);
 
 	container.prepend(mount);

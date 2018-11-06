@@ -7,7 +7,7 @@ megaNav();
 const toTick = [
 	time => TWEEN.update(time),
 	...scrollTabs()
-];
+].filter(Boolean);
 
 const tick = function(time) {
 	requestAnimationFrame(tick);

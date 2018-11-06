@@ -38,7 +38,7 @@ const generateY = isLow => {
 export default function(numOfPanels) {
 	let isLow = true;
 	const lastIdx = numOfPanels - 1;
-	const line = range(numOfPanels)
+	return range(numOfPanels)
 		.map(panelIndex => {
 			const points = [];
 			const numOfMarks = panelIndex === 0 ? 4 : generateQtyOfMarks();
@@ -67,6 +67,5 @@ export default function(numOfPanels) {
 
 			return points;
 		});
-	return line;
 };
 	
