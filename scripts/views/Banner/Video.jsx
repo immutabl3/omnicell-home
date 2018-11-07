@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { branch } from 'baobab-react/higher-order';
 import classnames from 'classnames';
+import noop from 'lodash/noop';
 
 class Video extends Component {
 	constructor() {
@@ -20,10 +21,17 @@ class Video extends Component {
 	componentDidUpdate(prevProps) {
 		const { source } = this.props;
 		if (prevProps.activeSource === source) return this.reload;
-		if (!this.video) return;
+		const { video } = this;
+		if (!video) return;
 		// https://stackoverflow.com/questions/5235145/changing-source-on-html5-video-tag
-		this.video.load();
-		this.video.play();
+		// Promise try catching is here because of the following errors:
+		// they don't appear to affect anything and we don't have the time to handle the state more specifically to avoid the throws
+		// Video.jsx:25 Uncaught (in promise) DOMException: The play() request was interrupted by a new load request.
+		// Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause().
+		Promise.resolve()
+			.then(() => this.video.load())
+			.then(() => this.video.play())
+			.catch(noop);
 	}
 
 	onRef(video) {

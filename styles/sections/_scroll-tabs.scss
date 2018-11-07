@@ -1,10 +1,9 @@
 .scroll-tabs {
-	$height: 400px;
 	user-select: none;
 	
 	position: relative;
 	margin-bottom: 4.375rem;
-	padding-top: $height;
+	padding-top: $scroll-tab-height;
 
 	// need these otherwise content may
 	// push us into a horizontal scroll
@@ -16,7 +15,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		height: $height;
+		height: $scroll-tab-height;
 		background-color: $color-cool-gray;
 	}
 		.spinner {
@@ -56,7 +55,7 @@
 		// setup to fill on large
 		@media ($sm) {
 			position: absolute;
-			top: ($height - 55px);
+			top: ($scroll-tab-height - 55px);
 			width: 100%;
 			padding: 0;
 			overflow: visible;
@@ -126,12 +125,14 @@
 		top: 0;
 		right: 0;
 		left: 0;
-		height: $height;
+		height: $scroll-tab-height;
 
 		font-size: 0;
 		line-height: 0;
 		overflow: hidden;
 		white-space: nowrap;
+
+		cursor: ew-resize;
 	}
 		&__slides {
 			display: inline-block;
@@ -140,7 +141,7 @@
 				position: relative;
 				display: inline-block;
 				width: 100vw;
-				height: $height;
+				height: $scroll-tab-height;
 
 				// used for debugging
 				// opacity: 0.2;
@@ -183,7 +184,7 @@
 		&__image {
 			position: relative;
 			z-index: 1;
-			height: $height;
+			height: $scroll-tab-height;
 			// keep the item from shrinking
 			flex-shrink: 0;
 			width: 100vw;
@@ -239,7 +240,10 @@
 			}
 		}
 			&__title { @extend .visuallyhidden; }
-			// &__content {}
+			&__content {
+				padding-top: 20px;
+				@media ($md) { padding: 0; }
+			}
 			&__nav {
 				a {
 					display: block;

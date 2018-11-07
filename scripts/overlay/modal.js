@@ -4,7 +4,7 @@ import noop from 'lodash/noop';
 
 const body = document.body;
 
-const BODY_CLASS = 'modal-open';
+const BODY_CLASS = 'imm-modal-open';
 
 export default function modal({
 	button,

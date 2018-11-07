@@ -1,5 +1,6 @@
+// NOTE: previous code used .modal
 .contact-modal {
-	@extend .modal;
+	@extend .imm-modal;
 
 	.imm-container {
 		position: relative;
