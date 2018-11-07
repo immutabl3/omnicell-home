@@ -7,6 +7,7 @@
 		height: 50px;
 		display: flex;
 		align-items: center;
+		flex-wrap: nowrap;
 	}
 }
 	.main-logo {
@@ -14,9 +15,8 @@
 		align-items: center;
 		height: 100%;
 		
-		@media ($md) {
-			padding-right: 30px;
-		}
+		@media ($md) { padding-right: 10px; }
+		@media ($lg) { padding-right: 30px; }
 
 		.icon {
 			display: block;
@@ -24,7 +24,7 @@
 			height: 20px;
 			margin: auto;
 
-			@media ($md) {
+			@media ($lg) {
 				width: 165px;
 				height: 30px;
 			}

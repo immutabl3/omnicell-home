@@ -8,6 +8,8 @@ import lerp from './lerp';
 import { root } from 'baobab-react/higher-order';
 import TWEEN from '@tweenjs/tween.js';
 
+// TODO: put mount event back in
+
 const scrollTab = function(container) {
 	const mount = container.querySelector('[data-mount]');
 	const store = createStore(container);

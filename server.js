@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const compression = require('compression');
 const favicon = require('serve-favicon');
 const exphbs = require('express-handlebars');
+const media = require('./media');
 const pkg = require('./package.json');
 
 const { PORT } = process.env;
@@ -34,6 +35,7 @@ app.get('/', (req, res) => res.render('home'));
 app.get('/integration', (req, res) => res.render('home', { integrate: true }));
 // redirect to the download link
 app.get('/download', (req, res) => res.redirect(pkg.repository.download));
+app.use('/video', media);
 
 // start up the server
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));

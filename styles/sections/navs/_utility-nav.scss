@@ -1,11 +1,13 @@
 .utility-nav {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
 	justify-self: flex-end;
 	margin-left: auto;
+	padding-left: 10px;
 }
 	.search-button {
 		padding: 12px;
-		// visually center
-		transform: translateY(2px);
 		cursor: pointer;
 
 		.icon {

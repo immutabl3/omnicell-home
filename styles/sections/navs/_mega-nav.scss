@@ -1,47 +1,77 @@
 .mega-nav {
-	display: flex;
-	height: $main-header-height;
+	$default-height: 350px;
 
 	display: none;
+	height: $main-header-height;
+
+	// only available on $md and up
+	// screen sizes because...ya know...
+	// it's a mega nav
+	@media ($md) { display: flex; }
 
 	&__section {
+		// on hover...
 		&:hover {
 			.mega-nav {
+				// ...pop all list heights to 100%. 
+				// they need to be at their natural 
+				// heights before hover to allow the 
+				// js to measure...
+				&__list { height: 100%; }
+				// ...and show the sub menu
 				&__sub-menu {
 					visibility: visible;
 					opacity: 1;
-					transition: 
-						visibility 300ms ease,
-						opacity 300ms ease;
+					// appear slowly, disappear fast
+					transition: opacity 300ms ease;
 				}
 			}
 		}
-	}
-		&__link {
+
+		// NOTE: sass w/ BEM doesn't work well with ">" selector
+		// TODO: responsive
+		// initial links (in main nav)
+		> .mega-nav__link {
 			display: flex;
 			align-items: center;
 			height: 100%;
 			padding: 0 7px;
 			color: #333;
-			font-size: 14px;
+			// the $md size covers a large area
+			// and number of devices. the sub-menus
+			// will work at the min $md size, so we
+			// just need to fit the links...
+			font-size: 12px;
 			transition: color 250ms ease;
 
 			&:hover {
+				color: $color-primary;
 				text-decoration: none;
 			}
+
+			// ...but we should get them up-to-size
+			// as soon as possible
+			@media (min-width: 820px) { font-size: 14px; }
 		}
+	}
 
 	&__sub-menu {
 		visibility: hidden;
 		position: absolute;
-		top: ($main-header-height + $top-bar-height);
+		top: 100%;
+		// this along with the transform
+		// is a tricky way to get a nested 
+		// menu to be full width and aligned
+		// with the body
 		left: -100vw;
 		width: 100vw;
-		min-height: 245px;
+		height: $default-height;
 		opacity: 0;
-		border-top: 2px solid $color-primary;;
-		transform: translateX(100%);
+		border-top: 2px solid $color-primary;
+		// TODO: variable
+    	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
 		background: linear-gradient(to right, $color-off-white 25%, $color-white 25%);
+		transform: translateX(100%);
 		transition: 
 			visibility 150ms ease,
 			opacity 150ms ease;
@@ -49,37 +79,139 @@
 		&__container {
 			@extend .container;
 			
+			// default flex to place the initial menu
+			// left at the appropriate spot
 			display: flex;
+			position: relative;
+			height: 100%;
+			padding: 0;
 		}
+			// the initial list
 			&__list {
+				position: relative;
 				width: 25%;
 				padding: 30px 0;
 				background-color: $color-off-white;
 
-				a {
-					display: block;
-					padding: 7.5px 0;
-					font-size: 1rem;
-					line-height: 1.2;
-				}
-			}
-				// TODO: 
-				&__label {
-					display: block;
-					margin-bottom: 1rem;
-					font-size: 14px;
-					font-weight: $font-bold;
+				.mega-nav {
+					// the sub-lists
+					&__list {
+						visibility: hidden;
+						position: absolute;
+						top: 0;
+						left: 100%;
+						width: 300px;
+						opacity: 0;
+						background-color: $color-white;
+						// adding a transition not only makes
+						// the page feel nice, but it also 
+						// allows some give before items
+						// disappear for someone to hover
+						transition: 
+							visibility 300ms ease,
+							opacity 300ms ease;
+
+						.mega-nav {
+							// the sub-list links
+							&__label,
+							&__link {
+								padding-left: 50px;
+								padding-right: 15px;
+							}
+
+							// and sub-sub-lists
+							&__list {
+								// a light divider to give a 
+								// sense of space but not 
+								// discourage the user from
+								// interacting
+								&:before {
+									content: '';
+									position: absolute;
+									top: 0;
+									bottom: 0;
+									left: 0;
+									width: 1px;
+									background-color: #f1f1f1;
+								}
+							}
+						}
+					}
 				}
 
-			&__features {
-				padding: 30px 50px;
-				background-color: $color-white;
+				// the item wraps the link to give context
 			}
-				&__feature {
-					visibility: hidden;
-					
-					&[data-id="default"], &.active {
-						visibility: visible;
+				// the the sub menus. the background gives
+				// visual feedback as to the path the user
+				// is traveling through the nav
+				&__item {
+					background-color: transparent;
+					transition: background-color 300ms ease;
+
+					&:hover {
+						// darker for the first set of links, 
+						// since they sit on off-white
+						background-color: darken($color-off-white, 5%);
+
+						// whenever an item is hovered,
+						// show its list
+						> .mega-nav__list {
+							visibility: visible;
+							opacity: 1;
+						}
+
+						// sub items are on white and
+						// need a lighter background
+						.mega-nav {
+							&__item {
+								background-color: transparent;
+
+								&:hover {
+									background-color: #f1f1f1;
+								}
+							}
+						}
 					}
+				
+					.mega-nav {
+						&__link {
+							display: block;
+							padding: 7.5px 0 7.5px 15px;
+							font-size: 1rem;
+							line-height: 1.2;
+
+							&:hover {
+								text-decoration: none;
+							}
+						}
+					}
+				}
+					&__label {
+						display: block;
+						margin-bottom: 1rem;
+						padding-left: 15px;
+						// TODO: px
+						font-size: 14px;
+						font-weight: $font-bold;
+					}
+
+			// the default feature that 
+			// will sit behind the sub menus
+			&__feature {
+				position: absolute;
+				top: 0;
+				left: 100%;
+				width: 350px;
+				height: 100%;
+				padding: 30px 50px;
+			}
+				p {
+					// TODO: px
+					margin-bottom: 15px;
+					line-height: 1.8;
+				}
+
+				.button {
+					@extend .uppercase;
 				}
 }
