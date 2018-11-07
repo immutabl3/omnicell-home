@@ -4,12 +4,12 @@
 ☐ lazy load images
 ☐ rename ".container"
 ☐ banner
+☐ spinner to green?
 ☐ modal and slider open/close via aria tag
 
 tabs:
 ☐ update slide images
 ☐ dynamic height
 ☐ scrolling x
-☐ loader bg
 ☐ animate points
 ☐ see if we can interrupt lory resizing

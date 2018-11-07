@@ -16,7 +16,6 @@ const scrollTab = function(container) {
 	const mount = container.querySelector('[data-mount]');
 	const store = createStore(container);
 
-	container.prepend(mount);
 	const RootedScrollTabs = root(store, ScrollTabs);
 	ReactDOM.render(<RootedScrollTabs />, mount);
 

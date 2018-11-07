@@ -1,14 +1,16 @@
 .banner {
+	position: relative;
 	background-color: $color-white;
+	user-select: none;
 
-	@media ($md) {
+	@media ($sm) {
 		height: 505px;
 	}
 
 	&__container {
 		position: relative;
 		
-		@media ($md) {
+		@media ($sm) {
 			display: flex;
 			align-items: center;
 			height: 100%;
@@ -16,12 +18,11 @@
 	}
 		&__callout {
 			position: relative;
-			z-index: 1;
+			z-index: 2;
 			padding: 20px 0;
 
-			@media ($md) {
-				width: 45%;
-			}
+			@media ($sm) { width: 55%; }
+			@media ($md) { width: 45%; }
 		}
 			&__heading {
 				font-size: 1.875rem;
@@ -41,7 +42,7 @@
 					white-space: pre;
 				}
 
-				@media ($md) {
+				@media ($sm) {
 					&:before { display: none; }
 				}
 			}
@@ -52,24 +53,82 @@
 					@extend .uppercase;
 				}
 	
-		&__poster {
-			&--desktop {
-				display: none;
+		&__context {
+			// below the content on mobile
+			position: relative;
 
-				@media ($md) {
-					display: block;
-					position: absolute;
-					z-index: 0;
-					width: 100%;
-					top: 50%;
-					left: 0;
-					transform: translateY(-50%);
-				}
+			// next to/behind the content on desktop
+			@media ($sm) {
+				position: absolute;
+				z-index: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
 			}
-			&--mobile {
-				@media ($md) {
-					display: none;
-				}
+			
+			// mask the image/video
+			&:after {
+				content: '';
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+
+			// css square
+			&:before {
+				content: '';
+				display: block;
+  				padding-bottom: 100%;
+
+				@media ($sm) { display: none; }
 			}
 		}
+			.spinner {
+				@media ($sm) {
+					left: auto;
+					right: 25%;
+				}
+			}
+			&__poster,
+			&__video {
+				position: absolute;
+				
+				top: 50%;
+				left: 50%;
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+				transform-origin: center;
+				transform: translate(-50%, -50%);
+
+				// scaling to fit the viewport
+				@media ($sm) {
+					width: 1440px;
+					height: 500px;
+					transform: translate(-50%, -50%) scale(0.5);
+				}
+				@media ($md) {
+					transform: translate(-50%, -50%) scale(0.65);
+				}
+				@media ($lg) {
+					transform: translate(-50%, -50%) scale(0.8);
+				}
+			}
+
+			&__poster { z-index: 0; }
+			&__video {
+				z-index: 1;
+				opacity: 0;
+				transition: opacity 550ms ease;
+
+				&--active {
+					opacity: 1;
+				}
+			}
 }
