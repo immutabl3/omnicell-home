@@ -2,6 +2,8 @@
 	position: relative;
 	z-index: $z-header;
     background-color: $color-white;
+	// transformations reset zindex in safari :(
+	transform: translate3d(0, 0, $z-header * 1px);
 
 	> .imm-container {
 		height: 50px;

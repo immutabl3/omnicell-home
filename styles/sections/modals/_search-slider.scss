@@ -8,14 +8,15 @@
 	opacity: 0;
 	background-color: $color-cool-gray;
 	@extend .depth-4;
-	transform: translate3d(0, -100%, 1px);
+	// transformations reset zindex in safari :(
+	transform: translate3d(0, -100%, $z-search-slider * 1px);
     transition: 
 		opacity 400ms ease,
 		transform 400ms cubic-bezier(0.2, 1, 0.2, 1);
 
 	&--active {
 		opacity: 1;
-		transform: translate3d(0, 0, 1px);
+		transform: translate3d(0, 0, $z-search-slider * 1px);
 	}	
 
 	.imm-container {

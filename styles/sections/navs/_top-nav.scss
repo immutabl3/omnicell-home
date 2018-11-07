@@ -3,6 +3,8 @@
 	z-index: $z-top-nav;
 	height: $top-bar-height;
 	background: $color-cool-gray;
+	// transformations reset zindex in safari :(
+	transform: translate3d(0, 0, $z-top-nav * 1px);
 
 	.imm-container {
 		display: flex;

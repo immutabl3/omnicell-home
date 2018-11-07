@@ -12,6 +12,8 @@
 		visibility 350ms ease,
 		opacity 350ms ease;
 	background-color: rgba(0, 0, 0, 0.2);
+	// transformations reset zindex in safari :(
+	transform: translate3d(0, 0, $z-modal * 1px);
 
 	&[aria-hidden="false"] {
 		visibility: visible;
