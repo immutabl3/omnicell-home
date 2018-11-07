@@ -136,6 +136,7 @@ const scrollTab = function(container) {
 	return () => {
 		panelLerp();
 		lineLerp();
+		store.commit();
 	};
 };
 

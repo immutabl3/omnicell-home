@@ -11,22 +11,23 @@ import megaNav from './megaNav';
 import contactHubspot from './contactHubspot';
 import lazyLoad from './lazyLoad';
 
-banner();
-megaNav();
-search();
-contactUs();
-country();
-offscreenNav();
-contactHubspot();
-lazyLoad();
-
 const toTick = [
 	// update tweens
 	time => TWEEN.update(time),
 	// update window
 	() => signalWindow.tick(),
+	// include our modules
+	megaNav(),
+	search(),
+	contactUs(),
+	country(),
+	offscreenNav(),
+	contactHubspot(),
+	lazyLoad(),
+	banner(),
 	// check the scroll tabs
 	...scrollTabs()
+// remove anything thta isnt tickable
 ].filter(Boolean);
 
 const tick = function(time) {

@@ -48,4 +48,6 @@ export default function() {
 	// lets kick it off
 	const isMobile = store.get('isMobile');
 	isMobile ? mobilePosterLoader() : desktopPosterLoader();
+
+	return () => store.commit();
 };

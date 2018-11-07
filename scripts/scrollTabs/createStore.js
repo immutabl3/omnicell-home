@@ -39,5 +39,9 @@ export default function(container) {
 					title: title.innerText,
 				};
 			}),
+	}, {
+		autoCommit: false,
+		persistent: false,
+		immutable: process.env.NODE_ENV !== 'development',
 	});
 };

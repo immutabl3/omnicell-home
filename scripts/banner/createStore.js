@@ -125,5 +125,9 @@ export default function(container) {
 				return loops.length <= 1;
 			},
 		})
+	}, {
+		autoCommit: false,
+		persistent: false,
+		immutable: process.env.NODE_ENV !== 'development',
 	});
 };
