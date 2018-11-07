@@ -1,4 +1,4 @@
-import slideMenu from './slideMenu';
+import slideMenu from './overlay/slideMenu';
 
 const hamburger = document.querySelector('#hamburger');
 const offscreenNav = document.querySelector('#offscreenNav');

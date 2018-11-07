@@ -1,31 +1,33 @@
 .country-nav {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
 	position: relative;
 	width: 100%;
-	max-width: 65%;
 	margin-left: auto;
 	padding: 20px 30px;
 	border-radius: 5px;
+	@extend .depth-4;
 	background-color: $color-white;
+
+	@media ($sm) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	@media ($md) { max-width: 85%; }
+	@media ($lg) { max-width: 65%; }
 
 	&__label {
 		@extend .uppercase;
-		margin-bottom: 10px;
-		color: #666;
-		// TODO: px
-		font-size: 12px;
+		margin-bottom: calculateRem(10px);
+		color: $color-dove;
+		font-size: calculateRem(12px);
 	}
 
 	&__link {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		margin: 0 0 20px 0;
-		// TODO: px
-		font-size: 14px;
-		// TODO: variable
-    	color: #333;
+		margin: 0 0 calculateRem(20px) 0;
+		font-size: calculateRem(14px);
+    	color: $color-slate;
 		transition: color 250ms ease;
 		cursor: pointer;
 

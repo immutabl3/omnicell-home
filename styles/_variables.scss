@@ -13,8 +13,18 @@ $color-off-white: #f4f4f4;
 $color-warm-off-white: #f1e8e2;
 $color-text: #4a4a4a;
 
+// generic other colors used proliferously
+// throughout some of the legacy code. these
+// are named so that they can later be removed/
+// refactored
+// http://chir.ag/projects/name-that-color/#666666
+$color-silver: #ccc;
+$color-dove: #666;
+$color-slate: #333;
+
 // sizes
 
+$max-width: 1170px;
 $top-bar-height: 35px;
 $main-header-height: 50px;
 
@@ -34,6 +44,7 @@ $z-top-nav: 350;
 $z-header: 300;
 $z-offscreen-nav: 200;
 $z-search-slider: 200;
+$z-message-rail: 50;
 
 // responsive
 

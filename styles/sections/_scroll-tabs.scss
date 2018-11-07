@@ -10,9 +10,18 @@
 	max-width: 100%;
 	overflow: hidden;
 
-	.spinner {
-		top: 150px;
+	&__mount {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: $height;
+		// TODO: apply appropriate background color for the FPO (NYI)
+		background-color: $color-cool-gray;
 	}
+		.spinner {
+			top: 150px;
+		}
 
 	// this is the rule that breaks
 	// between the tabs and the 
@@ -182,29 +191,28 @@
 			background-repeat: no-repeat;
 			background-size: cover;
 
+			&:after {
+				// wont display without a content attribute
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				bottom: 0;
+				// left & right defined below
+				width: 100%;
+				background-color: $color-cool-gray;
+			}
+
 			&:first-of-type {
 				&:after {
 					content: '';
-					position: absolute;
-					z-index: -1;
-					top: 0;
-					bottom: 0;
 					right: 100%;
-					width: 100%;
-					background-color: $color-cool-gray;
 				}
 			}
 
 			&:last-of-type {
 				&:after {
 					content: '';
-					position: absolute;
-					z-index: -1;
-					top: 0;
-					bottom: 0;
 					left: 100%;
-					width: 100%;
-					background-color: $color-cool-gray;
 				}
 			}
 		}
@@ -235,9 +243,8 @@
 			&__nav {
 				a {
 					display: block;
-					// TODO: px values
   					line-height: 2.67;
-					font-size: 12px;
+					font-size: calculateRem(12px);
 				}
 
 				@media ($md) {

@@ -7,8 +7,10 @@ import parseX from './parseX';
 import lerp from './lerp';
 import { root } from 'baobab-react/higher-order';
 import TWEEN from '@tweenjs/tween.js';
+import once from 'lodash/once';
 
-// TODO: put mount event back in
+const CLASS_NAME_FRAME = 'scroll-tabs__frame';
+const CLASS_NAME_SLIDES = 'scroll-tabs__slides';
 
 const scrollTab = function(container) {
 	const mount = container.querySelector('[data-mount]');
@@ -19,10 +21,9 @@ const scrollTab = function(container) {
 	ReactDOM.render(<RootedScrollTabs />, mount);
 
 	const panels = container.querySelector('[data-panels]');
-	const frame = container.querySelector('[data-frame]');
-	const slides = frame.children[0].children[0];
 
 	let animation;
+	let instance;
 
 	const isBackingStart = x => x > 0;
 	const isBackingEnd = x => {
@@ -42,12 +43,6 @@ const scrollTab = function(container) {
 		const backedOff = calcExpBackoffStart(offset, amount);
 		return minX - backedOff;
 	};
-	
-	const instance = lory(frame, {
-		enableMouseEvents: true,
-		classNameFrame: 'scroll-tabs__frame',
-		classNameSlideContainer: 'scroll-tabs__slides',
-	});
 
 	const to = panel => {
 		animation && animation.stop();
@@ -62,16 +57,30 @@ const scrollTab = function(container) {
 			.start();
 	};
 
-	store.set('onSelect', idx => instance.slideTo(idx));
+	store.set('onFrameReady', once(frame => {
+		// cant setup lory until we have the html rendered
+		// for it to mount. we could do this in the component
+		// but we need the instance and to dig into the html
+		// anyway so *shrug*
+		instance = lory(frame, {
+			enableMouseEvents: true,
+			classNameFrame: CLASS_NAME_FRAME,
+			classNameSlideContainer: CLASS_NAME_SLIDES,
+		});
 
-	container.addEventListener('on.lory.touchmove', parseX(slides, x => {
-		const newX = isBackingStart(x) ? 
-			calcExpBackoffStart(x) :
-			isBackingEnd(x) ? 
-				calcExpBackoffEnd(x) :
-				x;
-		store.set('x', newX);
+		// cant hook up the parsing until we have slides
+		const slides = frame.children[0].children[0];
+		container.addEventListener('on.lory.touchmove', parseX(slides, x => {
+			const newX = isBackingStart(x) ? 
+				calcExpBackoffStart(x) :
+				isBackingEnd(x) ? 
+					calcExpBackoffEnd(x) :
+					x;
+			store.set('x', newX);
+		}));
 	}));
+
+	store.set('onSelect', idx => instance.slideTo(idx));
 
 	container.addEventListener('on.lory.touchstart', () => {
 		store.merge({

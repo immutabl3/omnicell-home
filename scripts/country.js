@@ -1,4 +1,4 @@
-import modal from './modal';
+import modal from './overlay/modal';
 
 const countryButton = document.querySelector('#countryButton');
 const countryModal = document.querySelector('#countryModal');

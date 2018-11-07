@@ -1,3 +1,5 @@
+import signalWindow from 'signal-window';
+import TWEEN from '@tweenjs/tween.js';
 import banner from './banner';
 import search from './search';
 import contactUs from './contactUs';
@@ -5,17 +7,20 @@ import offscreenNav from './offscreenNav';
 import country from './country';
 import scrollTabs from './scrollTabs';
 import megaNav from './megaNav';
-import TWEEN from '@tweenjs/tween.js';
 
 banner();
+megaNav();
 search();
 contactUs();
-offscreenNav();
 country();
-megaNav();
+offscreenNav();
 
 const toTick = [
+	// update tweens
 	time => TWEEN.update(time),
+	// update window
+	() => signalWindow.tick(),
+	// check the scroll tabs
 	...scrollTabs()
 ].filter(Boolean);
 

@@ -1,0 +1,36 @@
+{{!-- TODO: do we need all these fonts? --}}
+{{!--
+	Kick off the font load early to prevent screen flicker
+	and speed up the CSSOM construction
+	https://www.igvita.com/2014/01/31/optimizing-web-font-rendering-performance/
+
+	don't let the fonts slow us down
+	https://developers.google.com/web/updates/2016/02/font-display
+--}}
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<style>
+	@font-face {
+		font-family: 'Open Sans';
+		font-display: auto;
+		font-weight: 300;
+		src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans:300') format('woff');
+	}
+	@font-face {
+		font-family: 'Open Sans';
+		font-display: auto;
+		font-weight: 400;
+		src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans:400') format('woff');
+	}
+	@font-face {
+		font-family: 'Open Sans';
+		font-display: auto;
+		font-weight: 600;
+		src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans:600') format('woff');
+	}
+	@font-face {
+		font-family: 'Open Sans';
+		font-display: auto;
+		font-weight: 700;
+		src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans:700') format('woff');
+	}
+</style>

@@ -29,14 +29,13 @@
 		}
 
 		// NOTE: sass w/ BEM doesn't work well with ">" selector
-		// TODO: responsive
 		// initial links (in main nav)
 		> .mega-nav__link {
 			display: flex;
 			align-items: center;
 			height: 100%;
 			padding: 0 7px;
-			color: #333;
+			color: $color-slate;
 			// the $md size covers a large area
 			// and number of devices. the sub-menus
 			// will work at the min $md size, so we
@@ -68,8 +67,7 @@
 		height: $default-height;
 		opacity: 0;
 		border-top: 2px solid $color-primary;
-		// TODO: variable
-    	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
+		@extend .depth-4;
 		background: linear-gradient(to right, $color-off-white 25%, $color-white 25%);
 		transform: translateX(100%);
 		transition: 
@@ -190,8 +188,7 @@
 						display: block;
 						margin-bottom: 1rem;
 						padding-left: 15px;
-						// TODO: px
-						font-size: 14px;
+						font-size: calculateRem(14px);
 						font-weight: $font-bold;
 					}
 
@@ -206,8 +203,7 @@
 				padding: 30px 50px;
 			}
 				p {
-					// TODO: px
-					margin-bottom: 15px;
+					margin-bottom: calculateRem(15px);
 					line-height: 1.8;
 				}
 

@@ -8,11 +8,9 @@
     margin: 0;
     padding: 10px;
     outline: 0;
-	// TODO: variable
-    color: #333;
+	color: $color-slate;
 	line-height: 0;
-	// TODO: px
-	font-size: 25px;
+	font-size: calculateRem(25px);
 	font-weight: $font-light;
 	transition: color 250ms ease;
 

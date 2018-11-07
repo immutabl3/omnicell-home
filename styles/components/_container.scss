@@ -1,7 +1,7 @@
 // our flexible container
 .container {
 	width: 100%;
-	max-width: 1170px;
+	max-width: $max-width;
 	margin: 0 auto;
 	padding: 0 15px;
 

@@ -1,4 +1,4 @@
-import slideMenu from './slideMenu';
+import slideMenu from './overlay/slideMenu';
 
 const searchButton = document.querySelector('#searchButton');
 const searchBox = document.querySelector('#searchBox');

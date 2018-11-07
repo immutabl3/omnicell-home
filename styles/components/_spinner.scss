@@ -1,6 +1,11 @@
 // https://codepen.io/Mattykins/pen/wfJqk
 
-@keyframes spin {
+@keyframes spin-outer {
+  from { transform: rotate(0deg) scale(0.5); }
+  to { transform: rotate(360deg) scale(0.5); }
+}
+
+@keyframes spin-inner {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
@@ -29,7 +34,7 @@
 			border-right: none;
 			border-top: none;
   			box-shadow: inset 0 0 10px transparentize($color, 0.15);
-			animation: spin 2s infinite linear;
+			animation: spin-inner 2s infinite linear;
 		}
 		
 		&:nth-of-type(0) { transform: rotate(0deg); }
@@ -38,5 +43,5 @@
 		&:nth-of-type(3) { transform: rotate(210deg); }
 	}
 
-	animation: spin 5s infinite linear;
+	animation: spin-outer 5s infinite linear;
 }

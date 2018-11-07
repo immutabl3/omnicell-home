@@ -1,9 +1,7 @@
 .message-rail {
 	position: relative;
-	// TODO: z-index mapping
-	z-index: 5;
-	// TODO: variable
-	max-width: 1170px;
+	z-index: $z-message-rail;
+	max-width: $max-width;
 	margin: 0 auto;
 
 	&__message {

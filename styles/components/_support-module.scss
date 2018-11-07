@@ -3,7 +3,7 @@
 	width: 100%;
 	padding: 30px 15px;
 	margin: 1rem auto;
-	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	@extend .depth-0;
 	transition: 
 		box-shadow 400ms ease,
 		background-color 400ms ease;
@@ -30,7 +30,7 @@
 	}
 
 	&:hover {
-		box-shadow: 5px 5px 40px 0 rgba(0, 0, 0, 0.1);
+		@extend .depth-5;
 		background-color: $color-white;
 
 		.h1, .h2, .h3, .h4, .h5, .h6 {

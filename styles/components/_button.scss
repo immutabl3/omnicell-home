@@ -8,14 +8,12 @@
 	vertical-align: middle;
 	user-select: none;
 	border: 2px solid $color-cool-gray;
-	// TODO: px
 	padding: 9px 16px;
 	overflow: hidden;
 	color: $color-white;
 	text-decoration: none;
 	line-height: 1.5;
-	// TODO: px
-	font-size: 14px;
+	font-size: calculateRem(14px);
 	font-weight: $font-normal;
 	background-color: $color-cool-gray;
 	transition: color 250ms ease-in-out,
@@ -100,11 +98,9 @@
 	}
 
 	&--small {
-		// TODO: px
 		padding: 4px 15px;
 		border-width: 1px;
-		// TODO: px
-		font-size: 13px;
+		font-size: calculateRem(13px);
 	}
 
 	// potential large variant

@@ -1,8 +1,10 @@
 @import "variables";
 @import "reset";
 @import "reboot";
+@import "mixins";
 @import "utils";
 @import "type";
+@import "depth";
 
 @import "../node_modules/hamburgers/_sass/hamburgers/base";
 @import "../node_modules/hamburgers/_sass/hamburgers/types/spring";

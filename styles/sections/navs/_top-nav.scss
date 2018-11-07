@@ -23,7 +23,7 @@
 				right: 100%;
 				bottom: 10px;
 				width: 1px;
-				background-color: #ccc;
+				background-color: $color-silver;
 			}
 			&:first-of-type { &::before { display: none; } }
 
@@ -69,8 +69,7 @@
 				left: 0;
 				width: 205px;
 				opacity: 0;
-				// TODO: variablize box shadows
-				box-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
+				@extend .depth-2;
 				background-color: $color-white;
 				transition: 
 					visibility 250ms ease,
@@ -79,7 +78,7 @@
 				&__link {
 					display: block;
 					padding: 10px 20px;
-					color: #333;
+					color: $color-slate;
 					font-size: 13px;
 					cursor: pointer;
 					transition: 

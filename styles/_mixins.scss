@@ -1,0 +1,5 @@
+// http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
+@function calculateRem($size) {
+	$remSize: $size / 16px;
+	@return #{$remSize}rem;
+}

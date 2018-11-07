@@ -1,8 +1,9 @@
 .card {
+	@extend .depth-0;
+
 	display: block;
     position: relative;
     margin: 1rem 0 3rem;
-	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     background-color: $color-white;
     transition: 
 		box-shadow 400ms ease,
@@ -42,7 +43,6 @@
 
 	&__content {
 		display: block;
-		// TODO: px
 		padding: 15px 15px 30px 15px;
 
 		@media ($md) {
@@ -51,12 +51,10 @@
 	}
 		&__category {
 			display: block;
-			// TODO: px
 			margin-bottom: 10px;
 			color: $color-subdued-gray;
 			text-transform: uppercase;
-			// TODO: px
-			font-size: 12px;
+			font-size: calculateRem(12px);
 		}
 		&__link {
 			max-height: 70px;
@@ -76,13 +74,12 @@
 			}
 
 			@media ($lg) {
-				// TODO: px
-				font-size: 18px;
+				font-size: calculateRem(18px);
 			}
 		}
 
 	&:hover {
-		box-shadow: 5px 5px 40px 0 rgba(0, 0, 0, 0.08);
+		@extend .depth-5;
 		text-decoration: none;
 
 		&:after {
