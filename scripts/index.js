@@ -7,6 +7,7 @@ import offscreenNav from './offscreenNav';
 import country from './country';
 import scrollTabs from './scrollTabs';
 import megaNav from './megaNav';
+import contactHubspot from './contactHubspot';
 
 banner();
 megaNav();
@@ -14,6 +15,7 @@ search();
 contactUs();
 country();
 offscreenNav();
+contactHubspot();
 
 const toTick = [
 	// update tweens

@@ -1,0 +1,16 @@
+.email-sales-modal {
+	$offset: ($top-bar-height + $main-header-height + 20px);
+	
+	@extend .modal;
+	overflow-y: scroll;
+	padding: $offset 0;
+
+	.container {
+		position: relative;
+		max-width: 500px;
+		margin: 0 auto;
+		padding: 20px;
+		border-radius: 5px;
+		background-color: $color-white;
+	}
+}

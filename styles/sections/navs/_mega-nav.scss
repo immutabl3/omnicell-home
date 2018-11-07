@@ -189,7 +189,12 @@
 						margin-bottom: 1rem;
 						padding-left: 15px;
 						font-size: calculateRem(14px);
-						font-weight: $font-bold;
+						// NOTE: this used to be "bold"
+						// but we're downgrading to a 
+						// more commonly used semi-bold
+						// to reduce font load times &
+						// flickering
+						font-weight: $font-semi-bold;
 					}
 
 			// the default feature that 

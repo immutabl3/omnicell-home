@@ -1,14 +1,20 @@
 import defer from 'lodash/defer';
+import noop from 'lodash/noop';
 
 const body = document.body;
 
 const BODY_CLASS = 'modal-open';
 
+// TODO: should be able to merge this with slideMenu
 export default function slideMenu({
 	button,
 	container,
 	buttonClass,
 	containerClass,
+	preActivate = noop,
+	postActivate = noop,
+	preDeactivate = noop,
+	postDeactivate = noop,
 }) {
 	let isActive = false;
 
@@ -25,10 +31,12 @@ export default function slideMenu({
 		if (isActive) return;
 		isActive = true;
 
+		preActivate();
 		buttonClass && button.classList.add(buttonClass);
 		containerClass && container.classList.add(containerClass);
 		container.setAttribute('aria-hidden', 'false');
 		body.classList.add(BODY_CLASS);
+		postActivate();
 		defer(() => document.addEventListener('click', clickOutside));
 	};
 
@@ -36,11 +44,13 @@ export default function slideMenu({
 		if (!isActive) return;
 		isActive = false;
 
+		preDeactivate();
 		buttonClass && button.classList.remove(buttonClass);
 		containerClass && container.classList.remove(containerClass);
 		container.setAttribute('aria-hidden', 'true');
 		body.classList.remove(BODY_CLASS);
 		document.removeEventListener('click', clickOutside);
+		postDeactivate();
 	};
 
 	button.addEventListener('click', () => 

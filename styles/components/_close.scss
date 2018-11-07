@@ -11,7 +11,12 @@
 	color: $color-slate;
 	line-height: 0;
 	font-size: calculateRem(25px);
-	font-weight: $font-light;
+	// NOTE: this was the only place where the 
+	// light variant was being used and because
+	// it's a close button, arial/helvetic are
+	// going to be "close enough"
+	font-family: sans-serif;
+	font-weight: 300;
 	transition: color 250ms ease;
 
 	&:hover {

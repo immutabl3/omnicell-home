@@ -18,6 +18,7 @@ class Tab extends PureComponent {
 		const { title, index, panel } = this.props;
 		return (
 			<button
+				role="button"
 				onClick={ this.onSelect }
 				className={ classnames('scroll-tabs__tab', {
 					'scroll-tabs__tab--active': index === panel,

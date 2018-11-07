@@ -1,16 +1,10 @@
 ☐ documentation
 ☐ save images for web
-☐ move all modals into sub folders
 ☐ audit
-☐ zindex map
 ☐ lazy load images
 ☐ rename ".container"
-☐ dont need wrapper?
-☐ email sales modal
-☐ check button roles
-
-cards:
-☐ constrain images
+☐ banner
+☐ modal and slider open/close via aria tag
 
 tabs:
 ☐ update slide images
