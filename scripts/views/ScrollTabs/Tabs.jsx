@@ -12,7 +12,6 @@ const renderTab = ({ title }, idx) => {
 	);
 };
 
-// TODO: optimize
 const Tabs = function({ panels }) {
 	return (
 		<div className="scroll-tabs__tabs" aria-hidden="true">

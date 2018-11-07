@@ -1,17 +1,29 @@
 .message-rail {
 	position: relative;
+	// TODO: z-index mapping
 	z-index: 5;
+	// TODO: variable
+	max-width: 1170px;
+	margin: 0 auto;
 
 	&__message {
-		position: absolute;
-		top: 0;
-		right: 15px;
-		width: 50%;
+		margin: 0;
 		padding: 20px 30px;
 		color: $color-white;
-		transform: translateY(-50%);
 		font-size: $font-size * 1.3;
 		background-color: $color-warm-gray;
+		
+		@media ($md) {
+			position: absolute;
+			top: 0;
+			right: 15px;
+			width: 70%;
+			transform: translateY(-50%);
+		}
+
+		@media ($lg) {
+			width: 50%;
+		}
 	}
 		strong {
 			color: $color-primary-light;

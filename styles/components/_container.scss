@@ -1,0 +1,36 @@
+// our flexible container
+.container {
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 15px;
+
+	// TODO: responsive styles
+	&--tiled {
+		@media ($sm) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-column-gap: 30px;
+		}
+		@media ($md) {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+	}
+
+	&--flex {
+		@media ($md) {
+			display: flex;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+		}
+	}
+
+	&--full {
+		width: 100%;
+		padding: 0;
+	}
+
+	&--spaced {
+		margin-bottom: 60px;
+	}
+}

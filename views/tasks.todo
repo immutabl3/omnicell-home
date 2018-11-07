@@ -1,14 +1,18 @@
-☐ move all navs into sub partials folder
+☐ documentation
+☐ save images for web
+☐ move all modals into sub folders
 ☐ audit
 ☐ zindex map
-☐ rename container
-☐ bring in external styles
-☐ loading animation
-☐ animate points
-☐ hover effects for social icons
-☐ update slide images
+☐ lazy load images
+☐ rename ".container"
+
+cards:
+☐ constrain images
 
 tabs:
+☐ update slide images
 ☐ dynamic height
 ☐ scrolling x
 ☐ loader bg
+☐ animate points
+☐ see if we can interrupt lory resizing

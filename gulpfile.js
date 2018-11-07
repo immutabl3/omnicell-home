@@ -1,6 +1,11 @@
 const gulp = require('gulp');
 const styles = require('./build/styles');
 
+gulp.task('assets', () => {
+	return gulp.src('./assets/**/*')
+		.pipe(gulp.dest('./public'));
+});
+
 gulp.task('build:site', function() {
 	return styles.run({
 		source: './styles/index.scss',

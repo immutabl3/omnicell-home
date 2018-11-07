@@ -1,0 +1,48 @@
+.country-nav {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	position: relative;
+	width: 100%;
+	max-width: 65%;
+	margin-left: auto;
+	padding: 20px 30px;
+	border-radius: 5px;
+	background-color: $color-white;
+
+	&__label {
+		@extend .uppercase;
+		margin-bottom: 10px;
+		color: #666;
+		// TODO: px
+		font-size: 12px;
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		margin: 0 0 20px 0;
+		// TODO: px
+		font-size: 14px;
+		// TODO: variable
+    	color: #333;
+		transition: color 250ms ease;
+		cursor: pointer;
+
+		&:hover {
+			color: $color-primary;
+			text-decoration: none;
+		}
+
+		// visually center the span because
+		// the flags aren't quite right :S 
+		span {
+			transform: translateY(-3px);
+		}
+	}
+		.flag {
+			width: 25px;
+			height: 19px;
+			margin-right: 10px;
+		}
+}

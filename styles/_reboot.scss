@@ -1,7 +1,8 @@
 html, body {   
 	// overscrolling in ios and safari
-	// will show the background color
-
+	// will show the background color..
+	// we're capped using the top-bar and
+	// footer with cool gray :) 
 	background-color: $color-cool-gray;
 }
 
@@ -14,10 +15,3 @@ body {
 		// wrapper color for the main page background color
 		background-color: $color-white;
 	}
-		// our flexible container
-		.container {
-			width: 100%;
-			max-width: 1170px;
-			margin: 0 auto;
-			padding: 0 15px;
-		}

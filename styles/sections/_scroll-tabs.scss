@@ -1,11 +1,14 @@
-// TODO: loading animation
 .scroll-tabs {
 	$height: 400px;
 	
 	position: relative;
 	margin-bottom: 4.375rem;
 	padding-top: $height;
-	// background-color: $color-cool-gray;
+
+	// need these otherwise content may
+	// push us into a horizontal scroll
+	max-width: 100%;
+	overflow: hidden;
 
 	.spinner {
 		top: 150px;

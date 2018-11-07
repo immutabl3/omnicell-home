@@ -1,0 +1,73 @@
+.support-module {
+	position: relative;
+	width: 100%;
+	padding: 30px 15px;
+	margin: 1rem auto;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	transition: 
+		box-shadow 400ms ease,
+		background-color 400ms ease;
+
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		color: $color-secondary;
+		transition: color 250ms ease;
+	}
+
+	.button {
+		@extend .uppercase;
+		width: 160px;
+		
+		// mask the card with the link
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+	}
+
+	&:hover {
+		box-shadow: 5px 5px 40px 0 rgba(0, 0, 0, 0.1);
+		background-color: $color-white;
+
+		.h1, .h2, .h3, .h4, .h5, .h6 {
+			color: $color-primary;
+		}
+
+		// simulate a hover effect on the button as well
+		// this will need to be more specific to override
+		// default behavior
+		.button.button--primary {
+			color: $color-white;
+			border-color: $color-primary;
+			background-color: $color-primary;
+		}
+	}
+
+	// at md sizes, start restricting the height
+	// as we're no longer viewing the item in a 
+	// vertical list
+	@media ($md) {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 300px;
+		max-width: 360px;
+		margin: 1rem 15px;
+
+		p {
+			margin-bottom: auto;
+		}
+
+		&:first-of-type { margin-left: 0; }
+		&:last-of-type { margin-right: 0; }
+	}
+
+	// further restrict the height at larger sizes
+	@media ($lg) {
+		height: 250px;
+	}
+}

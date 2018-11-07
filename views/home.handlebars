@@ -1,5 +1,5 @@
-{{> top-nav}}
-{{> header}}
+{{> navs/top-nav}}
+{{> main-header}}
 
 {{> banner}}
 {{> message-rail}}
@@ -9,21 +9,9 @@
 {{> news-rail}}
 {{> help-rail}}
 
-{{> footer}}
+{{> main-footer}}
 
-{{!-- 
-	Global site tag (gtag.js) - Google Analytics
-	NOTE that:
-	“… using more than one data layer can cause some triggers to stop working and could have other implications.”
-	https://developers.google.com/tag-manager/devguide#multiple-containers
---}}
-<script defer async src="https://www.googletagmanager.com/gtag/js?id=UA-4858273-1"></script>
-<script defer async src="https://www.googletagmanager.com/gtag/js?id=UA-118012149-1"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag() { dataLayer.push(arguments); }
-	gtag('js', new Date());
-	gtag('config', 'UA-4858273-1');
-	gtag('js', new Date());
-	gtag('config', 'UA-118012149-1');
-</script>
+{{> navs/offscreen-nav}}
+{{> modals/search-slider}}
+{{> modals/contact-modal}}
+{{> modals/country-modal}}

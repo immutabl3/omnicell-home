@@ -1,0 +1,62 @@
+.offscreen-nav {
+	position: absolute;
+    z-index: $z-offscreen-nav;
+	top: ($top-bar-height + $main-header-height);
+	left: 0;
+	right: 0;
+	opacity: 0;
+	// TODO: variable
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
+    background: $color-white;
+    transform: translate3d(0, -100%, 1px);
+    transition: 
+		opacity 400ms ease,
+		transform 400ms cubic-bezier(0.2, 1, 0.2, 1);
+
+	&--active {
+		opacity: 1;
+		transform: translate3d(0, 0, 1px);
+	}	
+
+	.container {
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+		@media ($sm) {
+			display: grid;
+			grid-column-gap: 30px;
+			grid-template-columns: 1fr 1fr;
+		
+		}
+		@media ($md) {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+	}
+		&__menu {
+			margin-bottom: 30px;
+		}
+			// links
+			a, &__label {
+				display: block;
+				color: #333;
+				line-height: 1.8;
+				font-size: 14px;
+
+				@extend .ellipsis;
+
+				cursor: default;
+				&[href] {
+					cursor: pointer;
+					transition: color 250ms ease;
+
+					&:hover {
+						color: $color-primary;
+						text-decoration: none;
+					}
+				}
+			}
+			&__label {
+				font-weight: $font-semi-bold;
+			}
+		
+}

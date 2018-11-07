@@ -1,0 +1,96 @@
+.top-nav {
+	position: relative;
+	z-index: $z-top-nav;
+	height: $top-bar-height;
+	background: $color-cool-gray;
+
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		height: 100%;
+	}
+		&__item {
+			position: relative;
+			height: 100%;
+
+			// pipe barriers
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 10px;
+				right: 100%;
+				bottom: 10px;
+				width: 1px;
+				background-color: #ccc;
+			}
+			&:first-of-type { &::before { display: none; } }
+
+			&:hover {
+				> .top-nav__sub-nav {
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+
+			&__link {
+				display: flex;
+				align-items: center;
+				position: relative;
+				height: 100%;
+				padding: 0 10px;
+				color: $color-white;
+				font-size: 13px;
+				cursor: pointer;
+				transition: color 300ms ease;
+
+				&:hover {
+					color: lighten($color-primary, 5%);
+					text-decoration: none;
+
+					.icon__fill { fill: lighten($color-primary, 5%); }
+				}
+			}
+				.icon {
+					margin-right: 5px;
+					&__fill {
+						fill: $color-white;
+						transition: fill 300ms ease;
+					}
+				}
+		
+			&__sub-nav {
+				visibility: hidden;
+				position: absolute;
+				z-index: 1;
+				top: 100%;
+				left: 0;
+				width: 205px;
+				opacity: 0;
+				// TODO: variablize box shadows
+				box-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
+				background-color: $color-white;
+				transition: 
+					visibility 250ms ease,
+					opacity 250ms ease;
+
+				&__link {
+					display: block;
+					padding: 10px 20px;
+					color: #333;
+					font-size: 13px;
+					cursor: pointer;
+					transition: 
+						color 250ms ease,
+						background-color 250ms ease;
+
+					&:hover  {
+						color: $color-white;
+						text-decoration: none;
+						background-color: $color-primary;
+					}
+				}
+			}
+}

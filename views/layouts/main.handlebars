@@ -9,14 +9,14 @@
 		</title>
 		<meta name="description" content="Omnicell is a leading provider of medication and supply management solutions dedicated to improving patient care and outcomes. We deliver value to hospitals, health systems, post-acute care settings, and patients in the home with our automated dispensing systems and medical inventory solutions." />
 
-		{{!-- TODO: more favicons --}}
-		<link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-		<link rel="icon" type="image/png" href="/img/favicon.ico">
+		<link rel="apple-touch-icon" sizes="76x76" href="/public/favicon.ico">
+		<link rel="icon" type="image/png" href="/public/favicon.ico">
 
 		{{#if integrate}}
 			{{> integration}}
 		{{/if}}
 
+		{{!-- TODO: move to a partial --}}
 		{{!--
 			Kick off the font load early to prevent screen flicker
 			and speed up the CSSOM construction
@@ -30,8 +30,20 @@
 			@font-face {
 				font-family: 'Open Sans';
 				font-display: auto;
+				font-weight: 300;
+				src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans:300') format('woff');
+			}
+			@font-face {
+				font-family: 'Open Sans';
+				font-display: auto;
 				font-weight: 400;
-				src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans') format('woff');
+				src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans:400') format('woff');
+			}
+			@font-face {
+				font-family: 'Open Sans';
+				font-display: auto;
+				font-weight: 600;
+				src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans:600') format('woff');
 			}
 			@font-face {
 				font-family: 'Open Sans';
@@ -40,13 +52,37 @@
 				src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans:700') format('woff');
 			}
 		</style>
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 		<link rel="stylesheet" href="/public/site.css">
 	</head>
 	<body>
+		{{!-- if the browser is out-of-date, try to recommend an upgrade...we don't support old IE --}}
+		<!--[if lte IE 10]>
+			<p class="browserupgrade">
+				You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.
+			</p>
+		<![endif]-->
 		<div class="wrapper">
 			{{{ body }}}
 		</div>
 		<script defer async src="/public/site.js"></script>
+		{{#if integrate}}
+			{{!-- 
+				Global site tag (gtag.js) - Google Analytics
+				NOTE that:
+				“… using more than one data layer can cause some triggers to stop working and could have other implications.”
+				https://developers.google.com/tag-manager/devguide#multiple-containers
+			--}}
+			<script defer async src="https://www.googletagmanager.com/gtag/js?id=UA-4858273-1"></script>
+			<script defer async src="https://www.googletagmanager.com/gtag/js?id=UA-118012149-1"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag() { dataLayer.push(arguments); }
+				gtag('js', new Date());
+				gtag('config', 'UA-4858273-1');
+				gtag('js', new Date());
+				gtag('config', 'UA-118012149-1');
+			</script>
+		{{/if}}
 	</body>
 </html>

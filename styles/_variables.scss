@@ -3,18 +3,37 @@
 $color-primary: #78be20;
 $color-primary-light: #5ec200;
 $color-secondary: #1359a0;
+$color-danger: #f44336; // TODO: button variant
 $color-cool-gray: #5e6a71;
 $color-warm-gray: #645f5c;
+$color-dark-gray: #53534a;
+$color-subdued-gray: #9c9996;
 $color-white: #fff;
 $color-off-white: #f4f4f4;
+$color-warm-off-white: #f1e8e2;
 $color-text: #4a4a4a;
+
+// sizes
+
+$top-bar-height: 35px;
+$main-header-height: 50px;
 
 // font
 
 $font-primary: 'Open Sans', sans-serif;
+$font-light: 300;
 $font-normal: 400;
+$font-semi-bold: 600;
 $font-bold: 700;
 $font-size: 1rem;
+
+// layering
+
+$z-modal: 400;
+$z-top-nav: 350;
+$z-header: 300;
+$z-offscreen-nav: 200;
+$z-search-slider: 200;
 
 // responsive
 
@@ -22,3 +41,81 @@ $sm: 'min-width: 576px';
 $md: 'min-width: 768px';
 $lg: 'min-width: 992px';
 $xl: 'min-width: 1200px';
+
+// hamburger
+
+$hamburger-padding-x           : 12px !default;
+$hamburger-padding-y           : 12px !default;
+$hamburger-layer-width         : 40px !default;
+$hamburger-layer-height        : 4px !default;
+$hamburger-layer-spacing       : 6px !default;
+$hamburger-layer-color         : $color-primary !default;
+$hamburger-layer-border-radius : 4px !default;
+$hamburger-hover-opacity       : 0.7 !default;
+$hamburger-active-layer-color  : $hamburger-layer-color !default;
+$hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
+
+// To use CSS filters as the hover effect instead of opacity,
+// set $hamburger-hover-use-filter as true and
+// change the value of $hamburger-hover-filter accordingly.
+$hamburger-hover-use-filter   : false !default;
+$hamburger-hover-filter       : opacity(50%) !default;
+$hamburger-active-hover-filter: $hamburger-hover-filter !default;
+
+// Types (Remove or comment out what you don’t need)
+// ==================================================
+$hamburger-types: (
+  3dx,
+  3dx-r,
+  3dy,
+  3dy-r,
+  3dxy,
+  3dxy-r,
+  arrow,
+  arrow-r,
+  arrowalt,
+  arrowalt-r,
+  arrowturn,
+  arrowturn-r,
+  boring,
+  collapse,
+  collapse-r,
+  elastic,
+  elastic-r,
+  emphatic,
+  emphatic-r,
+  minus,
+  slider,
+  slider-r,
+  spin,
+  spin-r,
+  spring,
+  spring-r,
+  stand,
+  stand-r,
+  squeeze,
+  vortex,
+  vortex-r
+) !default;
+
+// ==================================================
+// Cooking up additional types:
+//
+// The Sass for each hamburger type should be nested
+// inside an @if directive to check whether or not
+// it exists in $hamburger-types so only the CSS for
+// included types are generated.
+//
+// e.g. hamburgers/types/_new-type.scss
+//
+// @if index($hamburger-types, new-type) {
+//   .hamburger--new-type {
+//     ...
+//   }
+// }
+
+
+$hamburger-layer-color: $color-dark-gray;
+$hamburger-layer-width: 24px;
+$hamburger-layer-height: 3px;
+$hamburger-layer-spacing: 3px;
