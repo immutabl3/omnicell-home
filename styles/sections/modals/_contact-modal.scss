@@ -1,7 +1,7 @@
 .contact-modal {
 	@extend .modal;
 
-	.container {
+	.imm-container {
 		position: relative;
 		top: ($top-bar-height + $main-header-height + 20px);
 	}

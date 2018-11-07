@@ -5,6 +5,7 @@ import Banner from '../views/Banner';
 import createStore from './createStore';
 import { root } from 'baobab-react/higher-order';
 import posterLoader from './posterLoader';
+import $ from '../utils/querySelector';
 
 // we need a dynamicly swappable video between 
 // mobile and desktop that can also loop a 
@@ -12,12 +13,12 @@ import posterLoader from './posterLoader';
 // 2x dynamic poster image and a side-by-side 
 // layout on desktop
 
-const container = document.querySelector('#banner');
+const container = $('#banner');
 
 export default function() {
 	if (!container) return;
 
-	const mount = container.querySelector('[data-mount]');
+	const [mount] = $('[data-mount]', container);
 	const store = createStore(container);
 
 	const RootedBanner = root(store, Banner);

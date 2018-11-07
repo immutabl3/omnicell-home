@@ -41,6 +41,7 @@
     "express-handlebars": "^3.0.0",
     "hamburgers": "^1.1.3",
     "helmet": "^3.14.0",
+    "intersection-observer": "^0.5.1",
     "lory.js": "^2.5.2",
     "morgan": "^1.9.1",
     "react": "^16.7.0-alpha.0",

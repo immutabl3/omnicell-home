@@ -1,9 +1,11 @@
-const emailSalesModal = document.querySelector('#emailSalesModal');
+import $ from '../utils/querySelector';
+
+const emailSalesModal = $('#emailSalesModal');
 
 export default hbspt => {
-	const portalId = emailSalesModal.getAttribute('data-portalId');
-	const formId = emailSalesModal.getAttribute('data-formId');
-	const sfdcCampaignId = emailSalesModal.getAttribute('data-sfdcCampaignId');
+	const portalId = $.attr(emailSalesModal, 'data-portalId');
+	const formId = $.attr(emailSalesModal, 'data-formId');
+	const sfdcCampaignId = $.attr(emailSalesModal, 'data-sfdcCampaignId');
 	
 	// create the hubspot form
 	return new Promise(function(resolve) {

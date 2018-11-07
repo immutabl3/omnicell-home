@@ -1,15 +1,7 @@
-☐ documentation
 ☐ save images for web
-☐ audit
-☐ lazy load images
-☐ rename ".container"
-☐ banner
-☐ spinner to green?
-☐ modal and slider open/close via aria tag
 
 tabs:
-☐ update slide images
-☐ dynamic height
+☐ optimize safari
 ☐ scrolling x
 ☐ animate points
 ☐ see if we can interrupt lory resizing

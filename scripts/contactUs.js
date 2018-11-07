@@ -1,7 +1,8 @@
+import $ from './utils/querySelector';
 import modal from './overlay/modal';
 
-const contactButton = document.querySelector('#contactButton');
-const contactModal = document.querySelector('#contactModal');
+const contactButton = $('#contactButton');
+const contactModal = $('#contactModal');
 
 export default function() {
 	if (!contactButton || !contactModal) return;

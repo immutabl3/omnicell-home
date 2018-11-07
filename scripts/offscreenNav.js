@@ -1,7 +1,8 @@
-import slideMenu from './overlay/slideMenu';
+import $ from './utils/querySelector';
+import modal from './overlay/modal';
 
-const hamburger = document.querySelector('#hamburger');
-const offscreenNav = document.querySelector('#offscreenNav');
+const hamburger = $('#hamburger');
+const offscreenNav = $('#offscreenNav');
 
 const HAMBURGER_CLASS = 'is-active';
 const NAV_CLASS = 'offscreen-nav--active';
@@ -9,7 +10,7 @@ const NAV_CLASS = 'offscreen-nav--active';
 export default function() {
 	if (!hamburger || !offscreenNav) return;
 
-	slideMenu({
+	modal({
 		button: hamburger,
 		buttonClass: HAMBURGER_CLASS,
 		container: offscreenNav,

@@ -1,7 +1,9 @@
+import $ from '../utils/querySelector';
 import getValues from './getValues';
 
 export default form => {
-	const productSelect = form.querySelector('select[name="product"]');
+	const [productSelect] = $('select[name="product"]', form);
+	
 	// populate the form
 	const values = getValues();
 	values.forEach(value => {
@@ -11,7 +13,8 @@ export default form => {
 		productSelect.appendChild(option);
 	});
 
-	const productInput = form.querySelector('input[name="product_text_box"]');
+	// sync this input with the select
+	const [productInput] = $('input[name="product_text_box"]', form);
 	productSelect.addEventListener('input', function() {
 		productInput.value = productSelect.value;
 	});

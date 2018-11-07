@@ -8,6 +8,7 @@
 	}
 
 	&__container {
+		@extend .imm-container;
 		position: relative;
 		
 		@media ($sm) {

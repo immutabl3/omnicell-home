@@ -75,7 +75,7 @@
 			opacity 150ms ease;
 	}
 		&__container {
-			@extend .container;
+			@extend .imm-container;
 			
 			// default flex to place the initial menu
 			// left at the appropriate spot

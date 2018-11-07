@@ -53,6 +53,16 @@
 		}
 	}
 
+	&--danger {
+		border-color: $color-danger;
+		background-color: $color-danger;
+
+		&:not(:disabled):hover {
+			border-color: lighten($color-danger, 15%);
+			background-color: lighten($color-danger, 15%);
+		}
+	}
+
 	&--rounded {
 		border-radius: 5px;
 	}

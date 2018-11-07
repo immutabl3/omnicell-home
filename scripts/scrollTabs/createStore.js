@@ -1,8 +1,9 @@
 import Baobab from 'baobab';
+import $ from '../utils/querySelector';
 import generateLine from './generateLine';
 
 export default function(container) {
-	const tabPanels = Array.from(container.querySelectorAll('[role="tabpanel"]'));
+	const tabPanels = $('[role="tabpanel"]', container);
 	return new Baobab({
 		// tracking x positions
 		x: 0,
@@ -30,12 +31,12 @@ export default function(container) {
 		qty: tabPanels.length,
 		panels: tabPanels
 			.map(panel => {
-				const image = panel.getAttribute('data-image');
-				const title = panel.querySelector('[aria-hidden="true"]').innerText;
+				const image = $.attr(panel, 'data-image');
+				const [title] = $('[aria-hidden="true"]', panel);
 				return {
 					panel,
 					image,
-					title,
+					title: title.innerText,
 				};
 			}),
 	});

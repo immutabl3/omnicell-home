@@ -1,5 +1,6 @@
 import Baobab, { monkey } from 'baobab';
 import signalWindow from 'signal-window';
+import $ from '../utils/querySelector';
 
 const parseLoops = str => str.split(',').map(str => str.trim());
 
@@ -14,14 +15,14 @@ export default function(container) {
 		mobilePosterLoading: false,
 		desktopPosterLoading: false,
 		
-		mobilePoster: container.getAttribute('data-mobile-poster'),
-		desktopPoster: container.getAttribute('data-desktop-poster'),
+		mobilePoster: $.attr(container, 'data-mobile-poster'),
+		desktopPoster: $.attr(container, 'data-desktop-poster'),
 		
 		mobileIdx: 0,
 		desktopIdx: 0,
 
-		mobileLoops: parseLoops(container.getAttribute('data-mobile-loops')),
-		desktopLoops: parseLoops(container.getAttribute('data-desktop-loops')),
+		mobileLoops: parseLoops($.attr(container, 'data-mobile-loops')),
+		desktopLoops: parseLoops($.attr(container, 'data-desktop-loops')),
 
 		// using monkeys to keep the views clean
 		// since a lot of the above is just to check

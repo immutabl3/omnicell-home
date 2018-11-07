@@ -1,3 +1,4 @@
+import $ from '../utils/querySelector';
 import defer from 'lodash/defer';
 import noop from 'lodash/noop';
 
@@ -5,8 +6,7 @@ const body = document.body;
 
 const BODY_CLASS = 'modal-open';
 
-// TODO: should be able to merge this with slideMenu
-export default function slideMenu({
+export default function modal({
 	button,
 	container,
 	buttonClass,
@@ -34,7 +34,7 @@ export default function slideMenu({
 		preActivate();
 		buttonClass && button.classList.add(buttonClass);
 		containerClass && container.classList.add(containerClass);
-		container.setAttribute('aria-hidden', 'false');
+		$.attr(container, 'aria-hidden', 'false');
 		body.classList.add(BODY_CLASS);
 		postActivate();
 		defer(() => document.addEventListener('click', clickOutside));
@@ -47,7 +47,7 @@ export default function slideMenu({
 		preDeactivate();
 		buttonClass && button.classList.remove(buttonClass);
 		containerClass && container.classList.remove(containerClass);
-		container.setAttribute('aria-hidden', 'true');
+		$.attr(container, 'aria-hidden', 'true');
 		body.classList.remove(BODY_CLASS);
 		document.removeEventListener('click', clickOutside);
 		postDeactivate();
@@ -57,6 +57,6 @@ export default function slideMenu({
 		isActive ? deactivate() : activate()
 	);
 
-	Array.from(container.querySelectorAll('[data-dismiss="modal"]'))
+	$('[data-dismiss="modal"]', container)
 		.forEach(elem => elem.addEventListener('click', deactivate));
 };

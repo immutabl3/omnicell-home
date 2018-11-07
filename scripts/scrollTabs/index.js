@@ -8,18 +8,19 @@ import lerp from './lerp';
 import { root } from 'baobab-react/higher-order';
 import TWEEN from '@tweenjs/tween.js';
 import once from 'lodash/once';
+import $ from '../utils/querySelector';
 
 const CLASS_NAME_FRAME = 'scroll-tabs__frame';
 const CLASS_NAME_SLIDES = 'scroll-tabs__slides';
 
 const scrollTab = function(container) {
-	const mount = container.querySelector('[data-mount]');
+	const [mount] = $('[data-mount]', container);
 	const store = createStore(container);
 
 	const RootedScrollTabs = root(store, ScrollTabs);
 	ReactDOM.render(<RootedScrollTabs />, mount);
 
-	const panels = container.querySelector('[data-panels]');
+	const [panels] = $('[data-panels]', container);
 
 	let animation;
 	let instance;
@@ -138,6 +139,6 @@ const scrollTab = function(container) {
 	};
 };
 
-const scrollTabs = document.querySelectorAll('[data-scroll-tabs]');
+const scrollTabs = $('[data-scroll-tabs]');
 
-export default () => Array.from(scrollTabs).map(scrollTab);
+export default () => scrollTabs.map(scrollTab);

@@ -1,3 +1,4 @@
+import 'intersection-observer';
 import signalWindow from 'signal-window';
 import TWEEN from '@tweenjs/tween.js';
 import banner from './banner';
@@ -8,6 +9,7 @@ import country from './country';
 import scrollTabs from './scrollTabs';
 import megaNav from './megaNav';
 import contactHubspot from './contactHubspot';
+import lazyLoad from './lazyLoad';
 
 banner();
 megaNav();
@@ -16,6 +18,7 @@ contactUs();
 country();
 offscreenNav();
 contactHubspot();
+lazyLoad();
 
 const toTick = [
 	// update tweens

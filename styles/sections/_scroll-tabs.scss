@@ -17,7 +17,6 @@
 		left: 0;
 		right: 0;
 		height: $height;
-		// TODO: apply appropriate background color for the FPO (NYI)
 		background-color: $color-cool-gray;
 	}
 		.spinner {
@@ -28,7 +27,7 @@
 	// between the tabs and the 
 	// next content area
 	&:after {
-		@extend .container;
+		@extend .imm-container;
 
 		content: '';
 		position: absolute;
@@ -41,7 +40,7 @@
 	}
 
 	&__tabs {
-		@extend .container;
+		@extend .imm-container;
 
 		// setup to scroll on small screens
 		display: flex;
@@ -232,7 +231,7 @@
 			width: 100vw;
 			padding: 60px 0 45px;
 			
-			.container {
+			.imm-container {
 				@media ($md) {
 					display: grid;
 					grid-template-columns: 35% 65%;

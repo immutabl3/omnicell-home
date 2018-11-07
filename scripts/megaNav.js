@@ -15,9 +15,9 @@
 // the menu heights on window resize
 
 import signalWindow from 'signal-window';
+import $ from './utils/querySelector';
 
-// TODO: create a pseudo jquery
-const megaNav = document.querySelector('#megaNav');
+const megaNav = $('#megaNav');
 
 const MENU_CLASS = '.mega-nav__sub-menu';
 const LIST_CLASS = '.mega-nav__list';
@@ -25,11 +25,11 @@ const LIST_CLASS = '.mega-nav__list';
 export default function() {
 	if (!megaNav) return;
 
-	const menus = Array.from(megaNav.querySelectorAll(MENU_CLASS))
+	const menus = $(MENU_CLASS, megaNav)
 		.map(menu => {
 			return {
 				menu,
-				lists: Array.from(menu.querySelectorAll(LIST_CLASS)),
+				lists: $(LIST_CLASS, menu),
 			};
 		});
 

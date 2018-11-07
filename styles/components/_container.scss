@@ -1,11 +1,11 @@
 // our flexible container
-.container {
+// NOTE: previous code used .container
+.imm-container {
 	width: 100%;
 	max-width: $max-width;
 	margin: 0 auto;
 	padding: 0 15px;
 
-	// TODO: responsive styles
 	&--tiled {
 		@media ($sm) {
 			display: grid;

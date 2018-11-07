@@ -1,3 +1,6 @@
+import $ from '../utils/querySelector';
+
 export default ({ id }) => {
-	return document.querySelector(`[data-form-id="${id}"]`);
+	const [form] = $(`[data-form-id="${id}"]`);
+	return form;
 };

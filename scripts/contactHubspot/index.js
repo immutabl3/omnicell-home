@@ -4,9 +4,10 @@ import modal from '../overlay/modal';
 import setupForm from './setupForm';
 import queryForm from './queryForm';
 import customizeForm from './customizeForm';
+import $ from '../utils/querySelector';
 
-const emailSalesButton = document.querySelector('#emailSalesButton');
-const emailSalesModal = document.querySelector('#emailSalesModal');
+const emailSalesButton = $('#emailSalesButton');
+const emailSalesModal = $('#emailSalesModal');
 
 export default function() {
 	if (!emailSalesButton || !emailSalesModal) return;
@@ -17,7 +18,7 @@ export default function() {
 	};
 
 	const init = function() {
-		const path = emailSalesModal.getAttribute('data-hubspot');
+		const path = $.attr(emailSalesModal, 'data-hubspot');
 		loadHubspot(path)
 			.then(setupForm)
 			.then(queryForm)

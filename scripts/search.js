@@ -1,7 +1,8 @@
-import slideMenu from './overlay/slideMenu';
+import $ from './utils/querySelector';
+import modal from './overlay/modal';
 
-const searchButton = document.querySelector('#searchButton');
-const searchBox = document.querySelector('#searchBox');
+const searchButton = $('#searchButton');
+const searchBox = $('#searchBox');
 
 const BUTTON_CLASS = 'search-button--active';
 const SLIDER_CLASS = 'search-slider--active';
@@ -10,10 +11,10 @@ const CLEAR_CLASS = 'search-slider__clear--active';
 export default function() {
 	if (!searchButton || !searchBox) return;
 	
-	const input = searchBox.querySelector('input');
-	const clearButton = searchBox.querySelector('[type="clear"]');
+	const [input] = $('input', searchBox);
+	const [clearButton] = $('[type="clear"]', searchBox);
 
-	slideMenu({
+	modal({
 		button: searchButton,
 		buttonClass: BUTTON_CLASS,
 

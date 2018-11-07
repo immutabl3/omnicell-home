@@ -11,7 +11,7 @@
 }
 
 .spinner {
-	$color: lighten($color-secondary, 20%);
+	$color: lighten($color-primary, 20%);
 
 	box-sizing: content-box;
 	position: absolute;
