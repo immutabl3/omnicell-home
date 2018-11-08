@@ -17,7 +17,7 @@
 			height: 100%;
 
 			// pipe barriers
-			&::before {
+			&:before {
 				content: '';
 				display: block;
 				position: absolute;
@@ -27,7 +27,7 @@
 				width: 1px;
 				background-color: $color-silver;
 			}
-			&:first-of-type { &::before { display: none; } }
+			&:first-of-type { &:before { display: none; } }
 
 			&:hover {
 				> .top-nav__sub-nav {
@@ -44,15 +44,20 @@
 				height: 100%;
 				padding: 0 10px;
 				color: $color-white;
-				font-size: 13px;
+				font-size: calculateRem(11px);
 				cursor: pointer;
 				transition: color 300ms ease;
+				white-space: nowrap;
 
 				&:hover {
 					color: lighten($color-primary, 5%);
 					text-decoration: none;
 
 					.icon__fill { fill: lighten($color-primary, 5%); }
+				}
+
+				@media ($sm) {
+					font-size: calculateRem(13px);
 				}
 			}
 				.icon {
