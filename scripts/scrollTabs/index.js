@@ -125,17 +125,8 @@ const scrollTab = function(container) {
 		store.set('panelsX', newX);
 	};
 
-	const lineLerp = () => {
-		const x = store.get('x');
-		const lineX = store.get('lineX');
-		const newX = lerp(x, lineX, 0.2);
-		if (newX === undefined) return;
-		store.set('lineX', newX);
-	};
-
 	return () => {
 		panelLerp();
-		lineLerp();
 		store.commit();
 	};
 };

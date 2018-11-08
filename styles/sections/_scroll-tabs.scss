@@ -150,25 +150,6 @@
 				// &:nth-child(3) { background-color: green; }
 			}
 
-	&__line {
-		position: absolute;
-		z-index: 1;
-		top: 75px;
-		right: 0;
-		left: 0;
-		height: 250px;
-		overflow-x: hidden;
-		// 3d accelerate
-		transform: translateX(0) translateZ(1px);
-
-		polyline {
-			fill: none;
-			stroke: $color-primary;
-			stroke-width: 2;
-			stroke-miterlimit: 10;
-		}
-	}
-
 	&__carousel {
 		display: flex;
 		flex-wrap: nowrap;

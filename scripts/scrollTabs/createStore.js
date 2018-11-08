@@ -1,18 +1,19 @@
 import Baobab from 'baobab';
 import $ from '../utils/querySelector';
-import generateLine from './generateLine';
 
 export default function(container) {
 	const tabPanels = $('[role="tabpanel"]', container);
 	return new Baobab({
 		// tracking x positions
 		x: 0,
-		lineX: 0,
 		panelsX: 0,
 		
 		// size
 		width: window.innerWidth,
-		height: 250,
+		// with the removal of "Line", we no
+		// longer need to track height...this may
+		// change if the height becomes dynamic
+		// height: 250,
 
 		// tracking what panel we're on
 		panel: 0,
@@ -21,11 +22,6 @@ export default function(container) {
 		// dragging variables for exponential backoff
 		dragging: false,
 		startX: 0,
-
-		// generate a line based off the number of panels
-		// we have...this keeps the line interesting
-		// regardless of how many panels there are
-		line: generateLine(tabPanels.length),
 
 		// scrape the data out of the dom
 		qty: tabPanels.length,
