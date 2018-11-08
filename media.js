@@ -11,8 +11,7 @@ const rBytes = /bytes=/;
 
 const media = new Map(
 	[
-		'desktop-loop-1',
-		'desktop-loop-2',
+		'desktop-loop',
 		'mobile-loop',
 	].map(name => {
 		return [name, {
