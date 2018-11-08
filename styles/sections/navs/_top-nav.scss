@@ -56,7 +56,7 @@
 					.icon__fill { fill: lighten($color-primary, 5%); }
 				}
 
-				@media ($sm) {
+				@media ($xs) {
 					font-size: calculateRem(13px);
 				}
 			}
