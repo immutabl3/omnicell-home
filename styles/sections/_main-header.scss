@@ -16,7 +16,9 @@
 		display: flex;
 		align-items: center;
 		height: 100%;
+		margin-left: -11px;
 		
+		@media ($sm) { margin-left: 0; }
 		@media ($md) { padding-right: 10px; }
 		@media ($lg) { padding-right: 30px; }
 
