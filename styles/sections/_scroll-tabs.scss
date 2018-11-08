@@ -26,14 +26,15 @@
 	// between the tabs and the 
 	// next content area
 	&:after {
-		@extend .imm-container;
-
 		content: '';
 		position: absolute;
-		top: 100%;
+		bottom: 0;
 		left: 50%;
+		width: calc(100vw - 30px);
+		max-width: $max-width;
 		height: 2px;
 		padding: 0;
+		// custom color...only time it's used
 		background-color: #f1e8e2;
 		transform: translateX(-50%);
 	}
