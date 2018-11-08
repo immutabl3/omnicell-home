@@ -34,8 +34,7 @@
 		max-width: $max-width;
 		height: 2px;
 		padding: 0;
-		// custom color...only time it's used
-		background-color: #f1e8e2;
+		background-color: $color-warm-off-white;
 		transform: translateX(-50%);
 	}
 
