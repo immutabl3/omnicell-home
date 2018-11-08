@@ -241,14 +241,20 @@
 		}
 			&__title { @extend .visuallyhidden; }
 			&__content {
-				padding-top: 20px;
-				@media ($md) { padding: 0; }
+				padding-top: 55px;
+				@media ($sm) { padding-top: 20px; }
+				@media ($md) { padding-top: 0; }
 			}
 			&__nav {
+				padding-top: 55px;
+				@media ($sm) { padding-top: 35px; }
+				@media ($md) { padding-top: 0; }
+
 				a {
 					display: block;
   					line-height: 2.67;
 					font-size: calculateRem(12px);
+					font-weight: $font-semi-bold;
 				}
 
 				@media ($md) {
