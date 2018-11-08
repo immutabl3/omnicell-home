@@ -119,4 +119,8 @@
 			height: 425px;
 		}
 	}
+
+	// lazy images
+	[data-lazy-load] { min-height: 190px; }
+	[data-lazy-load="done"] { min-height: auto; }
 }
