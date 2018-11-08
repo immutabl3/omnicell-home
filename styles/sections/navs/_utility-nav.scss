@@ -4,7 +4,8 @@
 	flex-wrap: nowrap;
 	justify-self: flex-end;
 	margin-left: auto;
-	padding-left: 10px;
+
+	@media ($xs) { padding-left: 10px; }
 }
 	.search-button {
 		padding: 12px;
