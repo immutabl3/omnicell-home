@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/immutabl3/omnicell-home#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "@tweenjs/tween.js": "^17.2.0",
     "baobab": "^2.5.2",
     "baobab-react": "^3.0.0",
@@ -47,8 +48,8 @@
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
     "serve-favicon": "^2.5.0",
-    "signal-js": "^2.0.0",
-    "signal-window": "^2.0.2"
+    "signal-js": "^2.1.1",
+    "signal-window": "^2.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
