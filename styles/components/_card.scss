@@ -17,6 +17,10 @@
 		height: 325px;
 	}
 
+	.ie11 & {
+		max-width: 250px;
+	}
+
 	// rule
 	&:after {
 		content: '';

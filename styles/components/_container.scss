@@ -15,6 +15,16 @@
 		@media ($md) {
 			grid-template-columns: 1fr 1fr 1fr 1fr;
 		}
+
+		.ie11 & {
+			@media ($sm) {
+				display: flex;
+				justify-content: space-between;
+			}
+			@media ($md) {
+				flex-wrap: nowrap;
+			}
+		}
 	}
 
 	&--flex {
