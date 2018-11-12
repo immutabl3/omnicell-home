@@ -1,5 +1,6 @@
 import '@babel/polyfill';
 import 'intersection-observer';
+import './legacy';
 import signalWindow from 'signal-window';
 import TWEEN from '@tweenjs/tween.js';
 import banner from './banner';
