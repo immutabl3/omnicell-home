@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import 'intersection-observer';
 import signalWindow from 'signal-window';
 import TWEEN from '@tweenjs/tween.js';
