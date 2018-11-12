@@ -28,12 +28,12 @@ export default function() {
 	input.addEventListener('input', () => {
 		const hasValue = !!input.value.length;
 		// add the class
-		hasValue && !clearButton.classList.contains(CLEAR_CLASS) && clearButton.classList.add(CLEAR_CLASS);
+		clearButton && hasValue && !clearButton.classList.contains(CLEAR_CLASS) && clearButton.classList.add(CLEAR_CLASS);
 		// remove the class
-		!hasValue && clearButton.classList.contains(CLEAR_CLASS) && clearButton.classList.remove(CLEAR_CLASS);
+		clearButton && !hasValue && clearButton.classList.contains(CLEAR_CLASS) && clearButton.classList.remove(CLEAR_CLASS);
 	});
 
-	clearButton.addEventListener('click', e => {
+	clearButton && clearButton.addEventListener('click', e => {
 		// stop the submission
 		e.preventDefault();
 		// clear the value
