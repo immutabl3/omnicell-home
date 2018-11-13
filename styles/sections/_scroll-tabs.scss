@@ -216,8 +216,23 @@
 			
 			.imm-container {
 				@media ($md) {
-					display: grid;
-					grid-template-columns: 35% 65%;
+					// ie11 and grid wont play nice,
+					// so we removed the grid code and
+					// changed to a flex. With that we 
+					// had to force the items not to wrap 
+					// and set a fixed width on the content 
+					// and nav elements
+					display: flex;
+					flex-wrap: nowrap;
+
+					.scroll-tabs {
+						// we also don't want the content areas to actually
+						// "flex", just sit side-by-side (without clearfixing)
+						// flex-shrink 0 seems to do the trick on smaller ie11
+						// screen sizes
+						&__content { width: 35%; flex-shrink: 0; }
+						&__nav { width: 65%; flex-shrink: 0; }
+					}
 				}
 			}
 		}
@@ -243,8 +258,24 @@
 					display: flex;
 					flex-wrap: wrap;
 					padding-left: 10%;
-
-					a { width: 50%; }
 				}
+					// NOTE: extra column added inside nav
+					// to columnize the menu...this requires
+					// the CMS to split the links into chunks
+					// of 4, with the total not to exceed 8
+					// links total or the menu will break
+					//
+					// the goal with this change is to simulate
+					// a vertical wrap of the links because
+					// some of the sub content is only 2 links
+					// long, leaving links orphaned on the right
+					// side. this changes the right side to be dead
+					// space instead
+					// 
+					// if IE 11 is dropped in the future, the extra
+					// templating and markup can be removed for
+					// a CSS grid using nth-child to place the links
+					// in ascending spots
+					&__col { width: 50%; }
 			}
 }
