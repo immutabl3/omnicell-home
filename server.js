@@ -27,7 +27,7 @@ app.set('view engine', 'handlebars');
 app.use(morgan('tiny'));	
 
 // expose built assets
-app.use('/public', express.static('public'));
+app.use('/public', express.static('public', { maxAge: '1y' }));
 
 // the home page
 app.get('/', (req, res) => res.render('home'));
